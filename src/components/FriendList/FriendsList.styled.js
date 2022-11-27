@@ -17,21 +17,14 @@ export const Item = styled.li`
   box-shadow: rgba(0, 0, 0, 0.56) 0px 0px 15px 4px;
 `;
 
-export const IsOnline = styled.span`
+export const Status = styled.span`
   display: inline-block;
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  background-color: green;
+  background-color: ${props => (props.isOnline ? 'green' : 'gray')};
 `;
 
-export const IsOffline = styled.span`
-  display: inline-block;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  background-color: gray;
-`;
 export const Img = styled.img`
   width: 80px;
   display: block;

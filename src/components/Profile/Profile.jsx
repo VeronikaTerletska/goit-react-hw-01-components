@@ -12,7 +12,13 @@ import {
   Quantity,
 } from './Profile.styled';
 
-export const Profile = ({ username, tag, location, avatar, stats }) => {
+export const Profile = ({
+  username,
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
+}) => {
   return (
     <Card className="profile">
       <Description className="description">
@@ -25,30 +31,28 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
       <List className="stats">
         <Item>
           <Label className="label">Followers</Label>
-          <Quantity className="quantity">{stats.followers}</Quantity>
+          <Quantity className="quantity">{followers}</Quantity>
         </Item>
         <Item>
           <Label className="label">Views</Label>
-          <Quantity className="quantity">{stats.views}</Quantity>
+          <Quantity className="quantity">{views}</Quantity>
         </Item>
         <Item>
           <Label className="label">Likes</Label>
-          <Quantity className="quantity">{stats.likes}</Quantity>
+          <Quantity className="quantity">{likes}</Quantity>
         </Item>
       </List>
     </Card>
   );
 };
 Profile.propTypes = {
-  ProfilerData: PropTypes.exact({
-    username: PropTypes.string.isRequired,
-    tag: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    stats: PropTypes.exact({
-      followers: PropTypes.number.isRequired,
-      views: PropTypes.number.isRequired,
-      likes: PropTypes.number.isRequired,
-    }),
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  stats: PropTypes.exact({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
   }),
 };
